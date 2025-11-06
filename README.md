@@ -1,2 +1,5 @@
 # E-commerce-Website
-E-commerce website with Spring Security 6 Implemented with JWT token and OWASP Top 10 Web Application Security Risks Solved
+I implemented Spring Security 6 with JWT (access + refresh tokens), method-level RBAC, and CSRF protection.
+The architecture is fully stateless, with token validation filters and refresh token renewal flow.
+I’ve separated profiles for test and production, allowing seamless CI/CD integration.
+My next step would be to implement OAuth2 Login and to add token blacklisting and rotation for even stronger session control.
