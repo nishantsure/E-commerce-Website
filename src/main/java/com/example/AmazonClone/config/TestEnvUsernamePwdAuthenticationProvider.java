@@ -1,6 +1,6 @@
 package com.example.AmazonClone.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("!prod")
+
+@RequiredArgsConstructor
 public class TestEnvUsernamePwdAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final UserDetailsService userDetailsService;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Override

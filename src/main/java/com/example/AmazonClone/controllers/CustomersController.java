@@ -2,6 +2,7 @@ package com.example.AmazonClone.controllers;
 
 import com.example.AmazonClone.models.Customer;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/customers")
 public class CustomersController {
 
     private List<Customer> customersList = new ArrayList<>();
@@ -23,7 +23,8 @@ public class CustomersController {
     }
 
 
-    @GetMapping("/all")
+    @GetMapping("/customers")
+    @PostAuthorize("hasRole('USER')")
     public List<Customer> getAllCustomers(HttpServletRequest request){
         AllCustomers();
         System.out.println(request.getSession().getId());
